@@ -19,13 +19,13 @@ public class HandVisuals : MonoBehaviour
     private static readonly int LockPoseHash = Animator.StringToHash("LockedPose");
     private static readonly int ControllerSelectHash = Animator.StringToHash("ControllerSelectValue");
 
-    private Animator animator;
+    protected Animator animator;
 
     [SerializeField]
     private InputActionProperty flex;
 
     // Start is called before the first frame update
-    public void Awake()
+    protected void Awake()
     {
         animator = GetComponent<Animator>();
     }

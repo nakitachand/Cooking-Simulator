@@ -154,6 +154,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Flex",
+                    "type": "Value",
+                    "id": "0ca9fda9-3012-461c-9901-fcef0f137259",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -420,6 +428,17 @@
                     "action": "Translate Anchor",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b6e5b66d-d49c-4be1-b0b3-203619e76663",
+                    "path": "<XRController>{LeftHand}/grip",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flex",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
