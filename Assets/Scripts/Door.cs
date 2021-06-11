@@ -13,19 +13,19 @@ public enum RotationAxis
 public class Door : XRSimpleInteractable
 {
     [SerializeField]
-    private Transform doorPivot;
+    private Transform doorPivot;            //starting position of object
 
     [SerializeField]
-    private Transform movablePart;
+    private Transform movablePart;          //object that will move
 
     [SerializeField]
-    private RotationAxis doorRotationAxis;
+    private RotationAxis doorRotationAxis;  //user-defined rotational axis of object
 
     [SerializeField]
-    private Vector3 localStartDirection;
+    private Vector3 localStartDirection;    //starting position vector of object
 
     [SerializeField]
-    private Vector3 localEndDirection;
+    private Vector3 localEndDirection;      //ending position vector of object
 
     [SerializeField]
     private bool reverseDirection;
@@ -37,7 +37,7 @@ public class Door : XRSimpleInteractable
     private Transform currentInteractorTransform = null;
 
     [SerializeField]
-    private ProxyHand proxyHand;
+    protected ProxyHandsVisuals proxyHand;
 
 
     // Start is called before the first frame update
@@ -62,22 +62,24 @@ public class Door : XRSimpleInteractable
     {
         
         currentInteractorTransform = interactor.transform;
-        interactor.GetComponent<XRBaseController>().hideControllerModel = true;
-        proxyHand.Activate();
+        proxyHand.EnableProxyHandVisual(interactor.GetComponent<ActionBasedController>(), interactor);
+        
+        //interactor.GetComponent<XRBaseController>().hideControllerModel = true;
+        //proxyHand.Activate();
     }
 
     private void OnEndInteraction(XRBaseInteractor interactor)
     {
-        
+        proxyHand.DisableProxyHandVisual();
         currentInteractorTransform = null;
-        interactor.GetComponent<XRBaseController>().hideControllerModel = false;
-        proxyHand.Deactivate();
+        //interactor.GetComponent<XRBaseController>().hideControllerModel = false;
+        //proxyHand.Deactivate();
     }
 
     private void Interacting()
     {
         
-        Vector3 doorDirection = ConvertWorldPointtoLocalDirection(currentInteractorTransform.position);
+        Vector3 doorDirection = ConvertWorldPointtoLocalDirection(currentInteractorTransform.transform.position);
         Vector3 startDirection = doorPivot.TransformDirection(localStartDirection);
         
         float currentAngle = Vector3.Angle(doorDirection, startDirection);
@@ -97,7 +99,7 @@ public class Door : XRSimpleInteractable
         }
         else
         {
-            SetPercentageOpen(Mathf.Clamp(currentAngle, 0, maxLocalAngle) / maxLocalAngle);
+            SetPercentageOpen(Mathf.Clamp(currentAngle, maxLocalAngle, 0) / maxLocalAngle);
         }
     }
 
@@ -110,6 +112,7 @@ public class Door : XRSimpleInteractable
     }
 
     
+    //pass in world point of interactor's location and returns projected vector on the plane of motion
     private Vector3 ConvertWorldPointtoLocalDirection(Vector3 point)
     {
         Vector3 pivotAxis = doorPivot.TransformDirection(AxisDirectionToVector(doorRotationAxis).normalized);

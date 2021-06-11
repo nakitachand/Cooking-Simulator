@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ProxyHand : HandVisuals
 {
     [SerializeField]
     private HandPoses fixedPose;
+    //public Transform someVariable;
+
 
     public void Activate()
     {
@@ -21,6 +21,13 @@ public class ProxyHand : HandVisuals
     // Start is called before the first frame update
     public void Start()
     {
+        //if (someVariable == null)
+            //Debug.LogError($"{this.ToString()} has not been assigned.", this);
+        // Notice, that we pass 'this' as a context object so that Unity will highlight this object when clicked.
+
         Deactivate();
     }
+
+    
+
 }

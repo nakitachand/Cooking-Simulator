@@ -16,8 +16,8 @@ public enum HandPoses
 
 public class HandVisuals : MonoBehaviour
 {
-    private static readonly int LockPoseHash = Animator.StringToHash("LockedPose");
-    private static readonly int ControllerSelectHash = Animator.StringToHash("ControllerSelectValue");
+    protected static readonly int LockPoseHash = Animator.StringToHash("LockedPose");
+    protected static readonly int ControllerSelectHash = Animator.StringToHash("ControllerSelectValue");
 
     protected Animator animator;
 
@@ -27,16 +27,17 @@ public class HandVisuals : MonoBehaviour
     // Start is called before the first frame update
     protected void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = this.GetComponent<Animator>();
+        
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     public void Start()
     {
-        //LockPose(HandPoses.MediumGrab);
+        //    //LockPose(HandPoses.MediumGrab);
     }
 
-    public void Update()
+public void Update()
     {
         SetAnimatorInputValue(flex.action, ControllerSelectHash);
     }

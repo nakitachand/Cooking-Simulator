@@ -259,11 +259,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2927880642509333224}
-  - component: {fileID: 768628978003942307}
-  - component: {fileID: 2204413132600548876}
   - component: {fileID: 2620287541580618459}
+  - component: {fileID: 1746489341084976421}
   m_Layer: 0
-  m_Name: ProxyHand
+  m_Name: ProxyRightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,49 +283,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &768628978003942307
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2587946090853742674}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ad88555b58172164a8f1e46d93f7d3f6, type: 3}
-  m_Controller: {fileID: 9100000, guid: bca139cf1c1bfe847a3a9a470ad88ef8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2204413132600548876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2587946090853742674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66d601f61b17a44d862f2158e3550a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flex:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Flex
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 79866635-667d-433d-b0ea-4d5e76812909
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-    m_Reference: {fileID: 6448116958094893972, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
 --- !u!114 &2620287541580618459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,12 +301,32 @@ MonoBehaviour:
       m_Name: Flex
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: b1581d9c-1ac5-43cf-b0ae-2cbcfa94bf55
+      m_Id: 94fea985-dae7-4ba5-b386-400fc2e2cecc
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
     m_Reference: {fileID: 0}
-  fixedPose: 20
+  fixedPose: 0
+  someVariable: {fileID: 0}
+--- !u!95 &1746489341084976421
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587946090853742674}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: ad88555b58172164a8f1e46d93f7d3f6, type: 3}
+  m_Controller: {fileID: 9100000, guid: bca139cf1c1bfe847a3a9a470ad88ef8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2823422053322619735
 GameObject:
   m_ObjectHideFlags: 0
